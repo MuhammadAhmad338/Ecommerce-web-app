@@ -1,0 +1,16 @@
+.products-container {
+    margin: 75px 0;
+}
+
+.section-heading {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+}
+
+.products {
+    display: flex;
+    flex-flow: wrap;
+    gap: 20px;
+}
