@@ -13,7 +13,7 @@ const NavBar = () => {
                     <li>About</li>
                     <li>Categories</li>
                 </ul>
-                <div className='center'>JSDEVSTORE.</div>
+                <div className='center'>JSDEVSTORE</div>
                 <div className='right'>
                     <TbSearch />
                     <AiOutlineHeart />

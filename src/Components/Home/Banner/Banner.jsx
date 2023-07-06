@@ -14,7 +14,7 @@ const Banner = () => {
                     </p>
                     <div className='ctas'>
                         <div className='ctas-banner'>Read More</div>
-                        <div className='ctas-banner v2'>Shop Now</div>
+                        <div className='ctas-bannerV2'>Shop Now</div>
                     </div>
                 </div>
                 <img className='banner-image' src={BannerImg} alt="" />
