@@ -8,13 +8,13 @@ const NavBar = () => {
     return (
         <header className='main-header'>
             <div className='header-content'>
-                <ul className='left'>
+                <ul className='left-navbar'>
                     <li>Home</li>
                     <li>About</li>
                     <li>Categories</li>
                 </ul>
                 <div className='center'>JSDEVSTORE</div>
-                <div className='right'>
+                <div className='right-navbar'>
                     <TbSearch />
                     <AiOutlineHeart />
                     <span className='cart-icon'>

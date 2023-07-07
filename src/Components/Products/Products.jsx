@@ -1,11 +1,11 @@
 import Product from './Product/Product.jsx';
 import './Products.css';
 
-const Products = () => {
+const Products = ({ innerPage }) => {
     
     return (
         <div className='products-container'>
-            <div className='section-heading'>All Products</div>
+            {!innerPage && <div className='section-heading'>All Products</div>}
             <div className='products'>
                <Product />
                <Product />

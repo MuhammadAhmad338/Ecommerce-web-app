@@ -1,0 +1,13 @@
+.category-main-content {
+    margin: 75px 0;
+}
+
+.layout {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-title {
+    font-weight: bold;
+    font-size: 34px;
+}
