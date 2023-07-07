@@ -1,12 +1,11 @@
 import React from 'react';
+import Products from '../../Products/Products';
 import './RelatedProducts.css';
 
 const RelatedProducts = () => {
   return (
-    <div className=''>
-        <div className=''>
-            Related Products
-        </div>
+    <div className='related-products'>
+        <Products headingText="Related Products"/>
     </div>
   );
 }

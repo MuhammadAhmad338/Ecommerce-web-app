@@ -52,6 +52,7 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
+
         <RelatedProducts />
       </div>
     </div>

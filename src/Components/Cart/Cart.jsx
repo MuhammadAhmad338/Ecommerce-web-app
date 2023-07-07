@@ -1,10 +1,13 @@
 import React from 'react';
+import { MdClose } from 'react-icons/md';
+import { BsCartX } from 'react-icons/bs';
 
 const Cart = () => {
     return (
-        <section className='cart'>
-
-        </section>
+        <div className='cart-panel'>
+          <div className='opac-layer'></div>
+          <div className='cart-content'>Hahahaha</div>
+        </div>
     );
 }
 
