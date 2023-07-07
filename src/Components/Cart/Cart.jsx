@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.css';
 import { MdClose } from 'react-icons/md';
 import { BsCartX } from 'react-icons/bs';
 
