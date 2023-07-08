@@ -19,9 +19,133 @@
 }
 
 .cart-content {
-    width: 345px;
-    height: 100%;
-    background: white;
-    z-index: 1;
-    
+   width: 348px;
+   position: relative;
+   height: 100%;
+   background: white;
+   z-index: 1;
+   display: flex; 
+   flex-direction: column;
+   transform: translateX(100%);
+   animation: slideCartWindow 0.3s ease forwards;
+}
+
+.cart-header {
+   display: flex;
+   align-items: center;
+   padding: 15px 10px;
+   justify-content: flex-end;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+   font-weight: bold;
+   font-size: 20px;
+   flex-grow: 1;
+   margin-bottom: 0;
+   text-transform: uppercase;
+}
+
+.close-btn {
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   gap: 5px;
+}
+
+.close-btn:hover {
+   color: grey;
+}
+
+.close-btn svg {
+   font-size: 22px;
+}
+
+.close-btn-text {
+   font-weight: bold;
+   font-size: 14px;
+   display: flex;
+   text-transform: uppercase;
+   align-items: center;
+}
+
+.empty-cart {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+   margin-top: 100px;
+}
+
+.empty-cart svg {
+   font-size: 120px;
+   opacity: 0.1;
+}
+
+.empty-cart .empty-cart-text {
+   font-weight: bold;
+}
+
+.empty-cart .return-cta {
+   outline: 0;
+   border: 0;
+   cursor: pointer;
+   font-weight: bold;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 150px;
+   height: 50px;
+   flex-grow: unset;
+   color: white;
+   background-color: #6516aa;
+   border-bottom: 3px solid #6516aa;
+}
+
+.cart-footer {
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cart-footer .subtotal  {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 15px 15px;
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+   font-size: 22px;
+}
+
+.cart-footer .subtotal .subtotal-text {
+   font-weight: bold;
+}
+
+.cart-footer .checkout-button {
+   padding: 15px 20px;
+}
+
+.cart-footer .checkout-button .checkout-button-cta {
+   width: 100%;
+   height: 52px;
+   font-size: 17px;
+   text-align: center;
+   text-transform: uppercase;
+   cursor: pointer;
+   display: flex;
+   border: 0;
+   outline: 0;
+   color: white;
+   background: #6516aa;
+   border-bottom: 3px solid #6516aa;
+   align-items: center;
+   justify-content: center;
+}
+
+@keyframes slideCartWindow {
+   0% {
+      transform: translateX(100%);
+   }
+
+   100% {
+      transform: translateX(0%);
+   }
 }
