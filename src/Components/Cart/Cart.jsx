@@ -17,7 +17,6 @@ const Cart = ({ setShowCart }) => {
             <span className='close-btn-text'>Close</span>
           </span>
         </div>
-
         {/*
         <div className='empty-cart'>
           <BsCartX />
@@ -25,7 +24,6 @@ const Cart = ({ setShowCart }) => {
           <button className='return-cta'>Return To Shop</button>
         </div>
        */}
-
         <>
           <CartItem />
           <div className='cart-footer'>

@@ -9,7 +9,7 @@ const CartItem = () => {
             <div className='cart-product'>
                 
                 <div className='img-container'>
-                    <img src={prod} alt="" />
+                    <img src={prod} alt="Products" />
                 </div>
                 
                 <div className='product-details'>
@@ -26,6 +26,7 @@ const CartItem = () => {
                         <span className='highlight'>1144</span>
                     </div>
                 </div>
+
             </div>
         </div>
     );

@@ -1,7 +1,112 @@
 .search-model {
-
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   z-index: 999;
+   left: 0;
+   top: 0;
+   animation: slideSearchWindow 0.5s ease forwards;
+   transform: translateY(100%);
+   background-color: white;
 }
 
 .form-field {
-    
+    padding: 20px 0;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.form-field input {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    color: #212121;
+}
+ 
+.search-close-btn {
+    position: absolute;
+    font-size: 50px;
+    top: 50%;
+    right: 48px;
+    cursor: pointer;
+    transform: translateX(-50%);
+}
+
+.search-result-content {
+    margin: 8px auto;
+    max-width: 800px;
+}
+
+.search-results {
+    margin: 20px 0;
+    overflow: auto;
+    height: calc(100vh - 160px);
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.search-img-container {
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.search-img-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.search-result-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.search-prod-details {
+   overflow: hidden; 
+}
+
+.search-prod-details .search-name {
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
+
+.search-prod-details .search-desc {
+    line-height: 1;
+    font-size: 14px;
+    display: block;  
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    color: grey  
+}
+
+@keyframes slideSearchWindow {
+    0% {
+        transform: translateY(100%); 
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
