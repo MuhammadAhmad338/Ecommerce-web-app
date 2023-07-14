@@ -2,6 +2,7 @@ import React from 'react';
 import { SlSocialFacebook } from "react-icons/sl";
 import { SlSocialTwitter } from "react-icons/sl";
 import { SlSocialGithub } from "react-icons/sl";
+import { SlSocialGoogle } from 'react-icons/sl';
 import './Newsletter.css';
 
 const Newsletter = () => {
@@ -28,7 +29,7 @@ const Newsletter = () => {
                         <SlSocialGithub />
                     </div>
                     <div className='icon'>
-                        <SlSocialGithub />
+                        <SlSocialGoogle />
                     </div>
                 </div>
             </div>

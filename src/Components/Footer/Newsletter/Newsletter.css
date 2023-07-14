@@ -1,5 +1,5 @@
 .newsletter-section {
-    background-image: url("src/assets/newsletter-bg.jpeg");
+    background-image: url("../../../assets/newsletter-bg.jpeg");
     display: flex;
     align-items: center;
     height: 400px;

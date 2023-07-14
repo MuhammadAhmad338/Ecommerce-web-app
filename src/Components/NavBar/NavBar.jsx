@@ -6,13 +6,14 @@ import Cart from '../Cart/Cart';
 import Search from './Search/Search';
 import { useState } from 'react';
 import './NavBar.css';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
 
     //Here we are using the useState hooks for the cart and search
     const [showState, setShowState] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
-    
+    const navigate = useNavigate();
     //Here we are handling the state of the cart
     const handleClick = () => {
         if (showState) {
@@ -36,11 +37,11 @@ const NavBar = () => {
             <header className='main-header'>
                 <div className='header-content'>
                     <ul className='left-navbar'>
-                        <li>Home</li>
+                        <li onClick={() => navigate("/")}>Home</li>
                         <li>About</li>
                         <li>Categories</li>
                     </ul>
-                    <div className='center'>JSDEVSTORE</div>
+                    <div className='center' onClick={() => navigate("/")}>JSDEVSTORE</div>
                     <div className='right-navbar'>
                         <TbSearch onClick={handleSearch} />
                         <AiOutlineHeart />
