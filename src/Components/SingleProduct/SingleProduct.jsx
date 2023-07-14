@@ -25,7 +25,6 @@ const SingleProduct = () => {
   const singleProduct = async () => {
     try {
       const { data } = await axios.get(`${import.meta.env.VITE_APP_DEV_URL}/api/products?populate=*&[filters][id]=${id}`, params);
-      console.log(data.data[0].attributes);
       setProduct(data.data[0].attributes);
     } catch (error) {
       console.log(error);
