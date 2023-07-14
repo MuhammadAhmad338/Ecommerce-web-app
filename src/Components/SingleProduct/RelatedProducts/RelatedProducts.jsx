@@ -6,7 +6,7 @@ const RelatedProducts = () => {
   return (
     <div className='related-products'>
         <Products headingText="Related Products"/>
-    </div>
+    </div >
   );
 }
 

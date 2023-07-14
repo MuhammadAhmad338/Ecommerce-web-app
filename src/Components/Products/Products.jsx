@@ -1,20 +1,17 @@
 import Product from './Product/Product.jsx';
 import './Products.css';
 
-const Products = ({ innerPage, headingText }) => {
-    
+const Products = ({ innerPage, headingText, products }) => {
     return (
         <div className='products-container'>
             {!innerPage && <div className='section-heading'>{headingText}</div>}
             <div className='products'>
-               <Product />
-               <Product />
-               <Product />
-               <Product />
-               <Product />
-               <Product />
-               <Product />
-               <Product />
+                {products?.data?.map((item) => (
+                    <Product
+                        key={item.id}
+                        id={item.id}
+                        productData={item.attributes} />
+                ))}
             </div>
         </div>
     );

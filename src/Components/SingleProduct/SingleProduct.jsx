@@ -1,30 +1,60 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaTwitter, FaLinkedinIn, FaFacebookF, FaInstagram, FaPinterest } from 'react-icons/fa';
 import RelatedProducts from './RelatedProducts/RelatedProducts';
-import prod from '../../assets/products/earbuds-prod-3.webp';
+import { params } from '../../Context/MyContext';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import './SingleProduct.css';
 
 const SingleProduct = () => {
+
+  const [quantity, setQuantity] = useState(1);
+  const [product, setProduct] = useState([]);
+  const { id } = useParams();
+
+  const decreaseQuantity = () => {
+    if (quantity === 1) return;
+    setQuantity((prevQuantity) => prevQuantity - 1);
+  }
+
+  const increaseQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  }
+
+  const singleProduct = async () => {
+    try {
+      const { data } = await axios.get(`${import.meta.env.VITE_APP_DEV_URL}/api/products?populate=*&[filters][id]=${id}`, params);
+      console.log(data.data[0].attributes);
+      setProduct(data.data[0].attributes);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    singleProduct();
+  }, []);
+
   return (
     <div className='single-product-main-content'>
       <div className='layout'>
         <div className='single-product-page'>
 
           <div className='left'>
-            <img src={prod} alt="" />
+            <img src={import.meta.env.VITE_APP_DEV_URL + product.img?.data[0].attributes.url} alt="" />
           </div>
 
           <div className='right'>
-            <span className='name'>Product Name</span>
-            <span className='price'>Price</span>
-            <span className='desc'>Product Description</span>
+            <span className='name'>{product.title}</span>
+            <span className='price'>{product.price}</span>
+            <span className='desc'>{product.desc}</span>
 
             <div className='cart-buttons'>
               <div className='quantity-buttons'>
-                <span>-</span>
-                <span>5</span>
-                <span>+</span>
+                <span onClick={decreaseQuantity}>-</span>
+                <span>{quantity}</span>
+                <span onClick={increaseQuantity}>+</span>
               </div>
               <button className='add-to-cart-button'>
                 <AiOutlineShoppingCart size={20} />
@@ -52,7 +82,6 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
-
         <RelatedProducts />
       </div>
     </div>

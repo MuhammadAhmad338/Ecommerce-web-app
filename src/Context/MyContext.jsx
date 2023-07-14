@@ -36,12 +36,10 @@ const MyAppContext = ({ children }) => {
         fetchProducts();
         fetchCategories();
     }, []);
-    console.log(products);
-    console.log(categories);
 
     return <Context.Provider value={{ products, categories }}>
         {children}
     </Context.Provider>
 }
 
-export  {MyAppContext, Context};
+export { MyAppContext, Context, params };
