@@ -66,13 +66,17 @@ const MyAppContext = ({ children }) => {
     }
 
     useEffect(() => {
+        let count = 0;
+        cartItems.map(item => (count += item.attributes.quantity));
+        setCartCount(count);
+
         let total = 0;
         cartItems.map(item => (total += item.attributes.price * item.attributes.quantity));
         setCartSubTotal(total);
     }, [cartItems]);
 
     return <Context.Provider value={{
-        products, categories, cartItems, cartSubTotal, fetchProducts, fetchCategories,
+        products, categories, cartItems, cartCount, cartSubTotal, fetchProducts, fetchCategories,
         handleAddToCart, handleRemoveFromCart, handleCartProductQuantity
     }}>
         {children}
