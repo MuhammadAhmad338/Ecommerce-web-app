@@ -5,7 +5,6 @@ import axios from 'axios';
 import { params } from '../../Context/MyContext';
 import './Category.css';
 
-
 const Category = () => {
 
   const [filteredProducts, setFilteredProducts] = useState([]);

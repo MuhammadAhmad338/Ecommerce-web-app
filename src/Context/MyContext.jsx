@@ -9,6 +9,13 @@ const params = {
     }
 }
 
+export const makePaymentRequest = axios.create({
+    baseURL: import.meta.env.VITE_APP_DEV_URL,
+    headers: {
+        Authorization: "bearer " + import.meta.env.VITE_APP_STRAPI_APP_KEY,
+    },
+});
+
 const MyAppContext = ({ children }) => {
 
     const [products, setProducts] = useState([]);
