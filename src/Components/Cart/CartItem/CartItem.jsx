@@ -1,33 +1,37 @@
 import React from 'react';
-import prod from '../../../assets/products/earbuds-prod-4.webp';
 import { MdClose } from 'react-icons/md';
+import { useContext } from 'react';
+import { Context } from '../../../Context/MyContext';
 import './CartItem.css';
 
 const CartItem = () => {
+
+    const { cartItems, handleCartProductQuantity, handleRemoveFromCart } = useContext(Context);
     return (
         <div className='cart-products'>
-            <div className='cart-product'>
-                
-                <div className='img-container'>
-                    <img src={prod} alt="Products" />
-                </div>
-                
-                <div className='product-details'>
-                    <span className='cart-product-name'>Product Name</span>
-                    <MdClose className='product-close-btn'/>
-                    <div className='cart-quantity-buttons'>
-                        <span>-</span>
-                        <span>3</span>
-                        <span>+</span>
+            {
+                cartItems.map((item) => (
+                    <div key={item.id} className='cart-product'>
+                        <div className='img-container'>
+                            <img src={import.meta.env.VITE_APP_DEV_URL + item.attributes?.img.data[0].attributes.url} alt="Products" />
+                        </div>
+                        <div className='product-details'>
+                            <span className='cart-product-name'>{item.attributes.title}</span>
+                            <MdClose className='product-close-btn' onClick={() => handleRemoveFromCart(item)}/>
+                            <div className='cart-quantity-buttons'>
+                                <span onClick={() => handleCartProductQuantity('dec', item)}>-</span>
+                                <span>{item.attributes.quantity}</span>
+                                <span onClick={() => handleCartProductQuantity("inc", item)}>+</span>
+                            </div>
+                            <div className='product-quantity-text'>
+                                <span>{item.attributes.quantity}</span>
+                                <span>X</span>
+                                <span className='highlight'>{item.attributes.price * item.attributes.quantity}</span>
+                            </div>
+                        </div>
                     </div>
-                    <div className='product-quantity-text'>
-                        <span>3</span>
-                        <span>X</span>
-                        <span className='highlight'>1144</span>
-                    </div>
-                </div>
-
-            </div>
+                ))
+            }
         </div>
     );
 }

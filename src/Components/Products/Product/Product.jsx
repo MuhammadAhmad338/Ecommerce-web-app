@@ -2,11 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Product.css';
 
-const Product = ({ productData }) => {
-  const { navigate } = useNavigate();
-  
+const Product = ({ productData, productId }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className='product-card'>
+    <div className='product-card' onClick={() => navigate('/product/'+productId)}>
       <div className='product-thumbnail'>
         <img src={import.meta.env.VITE_APP_DEV_URL + productData.img.data[0].attributes.url} alt="Product Image" />
       </div>

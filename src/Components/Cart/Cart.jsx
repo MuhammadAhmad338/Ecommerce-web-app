@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CartItem from './CartItem/CartItem';
-import './Cart.css';
 import { MdClose } from 'react-icons/md';
 import { BsCartX } from 'react-icons/bs';
+import { Context } from '../../Context/MyContext';
+import './Cart.css';
 
 const Cart = ({ setShowCart }) => {
+
+  const { cartSubTotal, cartItems } = useContext(Context);
+  console.log(cartItems.length);
   return (
     <div className='cart-panel'>
       <div className='opac-layer'></div>
@@ -17,25 +21,27 @@ const Cart = ({ setShowCart }) => {
             <span className='close-btn-text'>Close</span>
           </span>
         </div>
-        {/*
-        <div className='empty-cart'>
+
+        {!cartItems?.length && <div className='empty-cart'>
           <BsCartX />
           <span className='empty-cart-text'>No Products in the cart</span>
           <button className='return-cta'>Return To Shop</button>
-        </div>
-       */}
-        <>
+        </div>}
+
+        {!!cartItems?.length && <>
           <CartItem />
           <div className='cart-footer'>
             <div className='subtotal'>
               <div className='subtotal-text'>SubTotal</div>
-              <div className='subtotal-total'>Total </div>
+              <div className='subtotal-total'> $ {cartSubTotal}</div>
             </div>
             <div className='checkout-button'>
               <button className='checkout-button-cta'>CheckOut</button>
             </div>
           </div>
         </>
+        }
+
 
       </div>
     </div>

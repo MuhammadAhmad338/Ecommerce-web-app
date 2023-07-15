@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Products from '../Products/Products';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './Category.css';
 import { params } from '../../Context/MyContext';
+import './Category.css';
+
 
 const Category = () => {
 
@@ -22,7 +23,7 @@ const Category = () => {
 
   useEffect(() => {
     filterProducts();
-  }, [])
+  }, []);
 
   return (
     <div className='category-main-content'>

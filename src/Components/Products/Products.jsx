@@ -9,8 +9,8 @@ const Products = ({ innerPage, headingText, products }) => {
                 {products?.data?.map((item) => (
                     <Product
                         key={item.id}
-                        id={item.id}
-                        productData={item.attributes} />
+                        productData={item.attributes}
+                        productId={item.id} />
                 ))}
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from './Banner/Banner';
 import Category from './Category/Category';
 import Products from '../Products/Products';
@@ -7,7 +7,12 @@ import { Context } from '../../Context/MyContext';
 import './Home.css';
 
 const Home = () => {
-    const { products } = useContext(Context);
+    const { products, fetchProducts } = useContext(Context);
+    
+    useEffect(() => {
+      fetchProducts();
+    }, []);
+
     return (
         <div>
             <Banner />

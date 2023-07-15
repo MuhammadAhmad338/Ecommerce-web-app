@@ -3,6 +3,10 @@
     margin-bottom: 15px;
 }
 
+.product-card:hover {
+    cursor: pointer;
+}
+
 .product-thumbnail {
     display: flex;
     align-items: center;

@@ -13,6 +13,9 @@ const MyAppContext = ({ children }) => {
 
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
+    const [cartCount, setCartCount] = useState(0);
+    const [cartSubTotal, setCartSubTotal] = useState(0);
 
     const fetchProducts = async () => {
         try {
@@ -32,12 +35,46 @@ const MyAppContext = ({ children }) => {
         }
     }
 
-    useEffect(() => {
-        fetchProducts();
-        fetchCategories();
-    }, []);
+    const handleAddToCart = (product, quantity) => {
+        let items = [...cartItems];
+        let index = items.findIndex(p => p.id === product.id);
+        if (index !== -1) {
+            items[index].attributes.quantity += quantity;
+        } else {
+            product.attributes.quantity = quantity;
+            items = [ ...items, product];
+        }
+        setCartItems(items);
+    }
 
-    return <Context.Provider value={{ products, categories }}>
+    const handleRemoveFromCart = (product) => {
+        let items = [...cartItems];
+        items = items.filter(item => item.id !== product.id);
+        setCartItems(items);
+    }
+
+    const handleCartProductQuantity = (type, product) => {
+        let items = [...cartItems];
+        let index = items.findIndex(p => p.id === product.id);
+        if (type === "inc") {
+            items[index].attributes.quantity += 1;
+        } else if (type === "dec") {
+            if (items[index].attributes.quantity === 1) return;
+            items[index].attributes.quantity -= 1;
+        }
+        setCartItems(items);
+    }
+
+    useEffect(() => {
+        let total = 0;
+        cartItems.map(item => (total += item.attributes.price * item.attributes.quantity));
+        setCartSubTotal(total);
+    }, [cartItems]);
+
+    return <Context.Provider value={{
+        products, categories, cartItems, cartSubTotal, fetchProducts, fetchCategories,
+        handleAddToCart, handleRemoveFromCart, handleCartProductQuantity
+    }}>
         {children}
     </Context.Provider>
 }
